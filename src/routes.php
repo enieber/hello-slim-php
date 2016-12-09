@@ -10,5 +10,8 @@ $app->get('/[{name}]', function ($request, $response, $args) {
 });
 
 $app->get('/test/api', function ($request, $response, $args) {
-    return $this->renderer->render($response, 'index.phtml', $args);
+    $data = array('name' => 'Bob', 'age' => 40);
+    $tt =  $response->withJson($data);
+    return $tt;
+//    return $this->renderer->render($response, 'index.phtml', $args);
 });
